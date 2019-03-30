@@ -1,21 +1,24 @@
 import random
-r = random.randint(1, 100)
+start = input('請決定隨機數字範圍開始值：')
+end = input('請決定隨機數字範圍結束值：')
+start = int(start)
+end = int(end)
 
-ans = input('猜數字')
-ans = int(ans)
-
-while r != ans:
-	if ans > r:
-		print('比答案大')
-		ans = input('繼續猜：')
-		ans = int(ans)
-	else:
+r = random.randint(start, end)
+count = 0
+while True:
+	count += 1 # count = count +1
+	ans = input('猜數字')
+	ans = int(ans)
+	if ans == r:
+		print('終於猜對了，答案是', r)
+		print('這是你猜的第', count, '次')
+		break
+	elif ans < r:
 		print('比答案小')
-		ans = input('繼續猜：')
-		ans = int(ans)
-
-print('終於猜對了，答案是', r)
-
+	elif ans > r:
+		print('比答案大')
+	print('這是你猜的第', count, '次')
 
 
 
